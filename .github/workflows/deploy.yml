@@ -7,3 +7,9 @@ jobs:
     steps:
       - name: Deploy step 1
         run: echo "deploy step 1 run"
+      - name: Get files
+        uses: actions/download-artifact@v2
+        with:
+          name: test-files
+      - name: Show files
+        run: ls       
