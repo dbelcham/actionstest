@@ -1,5 +1,5 @@
 name: Build
-on: [push,workflow_dispatch]
+on: push
 jobs:
   build:
     name: Build & Test
@@ -13,4 +13,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: test-files
-          path: testing.txt 
+          path: /**/testing.txt 
