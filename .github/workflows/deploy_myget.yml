@@ -1,0 +1,11 @@
+name: Deploy to myget
+on: workflow_dispatch
+jobs:
+  deploy:
+    name: Deploy to myget
+    runs-on: windows-latest
+    steps:
+      - name: Deploy to myget step 1
+        run: echo "deploy to myget step 1 run"
+      - name: Deploy to myget step 2
+        run: echo "deploy to myget step 2 run"
