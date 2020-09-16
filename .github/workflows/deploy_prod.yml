@@ -1,0 +1,9 @@
+name: Deploy to Production
+on: workflow_dispatch
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: windows-latest
+    steps:
+      - name: Deploy to prod step 1
+        run: echo "deploy to prod step 1 run"
