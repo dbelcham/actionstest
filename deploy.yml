@@ -1,0 +1,9 @@
+name: Deploy
+on: workflow_dispatch
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: windows-latest
+    steps:
+      - name: Deploy step 1
+        run: echo "deploy step 1 run"
