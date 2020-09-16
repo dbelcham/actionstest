@@ -7,3 +7,5 @@ jobs:
     steps:
       - name: Deploy to prod step 1
         run: echo "deploy to prod step 1 run"
+      - name: Deploy to prod step 2
+        run: echo "deploy to prod step 2 run"
