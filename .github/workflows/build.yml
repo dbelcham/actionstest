@@ -9,12 +9,10 @@ jobs:
         run: echo "step 1 was run"
       - name: Step 2
         run: echo "step 2 was run"
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Fetch all history for all tags and branches ## So GitVersion will work
-        run: git fetch --prune --unshallow
+      - name: Create file
+        run: echo "this is a file" > testing.txt
       - name: Upload files
         uses: actions/upload-artifact@v2
         with:
           name: test-files
-          path: src/testing.txt 
+          path: testing.txt 
