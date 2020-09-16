@@ -11,6 +11,8 @@ jobs:
         run: echo "step 2 was run"
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Fetch all history for all tags and branches ## So GitVersion will work
+        run: git fetch --prune --unshallow
       - name: Upload files
         uses: actions/upload-artifact@v2
         with:
