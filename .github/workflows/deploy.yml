@@ -1,5 +1,10 @@
 name: Deploy
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Commit Hash'
+        required: true
 jobs:
   deploy:
     name: Deploy
@@ -7,9 +12,11 @@ jobs:
     steps:
       - name: Deploy step 1
         run: echo "deploy step 1 run"
-      - name: Get files
-        uses: actions/download-artifact@v2
+      - name: Download artifacts
+        uses: dawidd6/action-download-artifact@v2
         with:
+          workflow: build.yml
           name: test-files
-      - name: Show files
-        run: ls       
+          path: tfs
+          commit: ${{ github.events.inputs.commit }}
+                 
