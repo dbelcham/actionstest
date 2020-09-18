@@ -10,7 +10,7 @@ jobs:
       - name: Step 2
         run: echo "step 2 was run"
       - name: Create file
-        run: echo "this is a file $GITHUB_SHA" > testing.txt
+        run: echo $GITHUB_SHA > testing.txt
       - name: Upload files
         uses: actions/upload-artifact@v2
         with:
