@@ -1,0 +1,21 @@
+name: Deploy to myget
+on: 
+  push:
+    branches-ignore:
+      - '**'    
+jobs:
+  deploy:
+    name: Deploy to myget
+    runs-on: windows-latest
+    steps:
+      - name: Deploy to myget step 1
+        run: echo "deploy to myget step 1 run"
+      - name: Deploy to myget step 2
+        run: echo "deploy to myget step 2 run"      
+      - name: Create file
+        run: echo ${{ github.sha }} > myget.txt
+      - name: Upload files
+        uses: actions/upload-artifact@v2
+        with:
+          name: myget-test-files
+          path: myget.txt 
