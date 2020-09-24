@@ -1,27 +1,20 @@
 name: Deploy
 on: 
-  workflow_dispatch:
-    inputs:
-      commit:
-        description: 'Commit Hash'
-        required: true
+  push:
+    branches-ignore:
+      - '**'    
 jobs:
   deploy:
     name: Deploy
     runs-on: windows-latest
     steps:
       - name: Deploy step 1
-        run: echo "deploy step 1 run"
-      - name: Download artifacts
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: build.yml
-          name: test-files
-          path: tfs
-          commit: ${{ github.events.inputs.commit }}
+        run: echo "deploy step 1 run"   
+      - name: Create file
+        run: echo ${{ github.sha }} > deploy.txt
       - name: Upload files
         uses: actions/upload-artifact@v2
         with:
-          name: files-downloaded
-          path: tfs/testing.txt 
+          name: deploy-test-files
+          path: deploy.txt 
                  
